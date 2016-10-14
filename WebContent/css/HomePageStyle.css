@@ -1,0 +1,177 @@
+@CHARSET "ISO-8859-1";
+
+.directory {
+	width: 40%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 3px solid #ccc;
+	background-color: #FFDAB9;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+}
+
+.directory:focus {
+	border: 3px solid #555;
+}
+
+body {
+	background-image:
+		url("http://static.tumblr.com/716ed9ad0054e0041b30015b4295b6e8/juugxzf/zAOn19ozm/tumblr_static_wood____marcuzi_mod_by_marcuzi.jpg");
+}
+
+label {
+	font: bold 22px courier;
+	color: #FFF8DC
+}
+
+input[type="text"] {
+	font-size: 16px;
+	font-style: italic
+}
+
+.DBLoadBtn {
+	position: relative;
+	top: -13px;
+	left: 415px;
+	background-color: #DEB887;
+	font: normal 18px courier;
+	border: none;
+	color: black;
+	padding: 14px 20px;
+	text-decoration: none;
+	margin: 2px 2px;
+	cursor: pointer;
+}
+
+.submitBtn {
+	position: relative;
+	top: -13px;
+	left: 885px;
+	background-color: #DEB887;
+	font: normal 18px courier;
+	border: none;
+	color: black;
+	padding: 14px 20px;
+	text-decoration: none;
+	margin: 2px 2px;
+	cursor: pointer;
+}
+
+.squaredFour {
+	width: 20px;
+	margin: -23px auto;
+	position: relative;
+	top: -130px;
+	left: 165px
+}
+
+.chkbox {
+	position: relative;
+	left: 1150px;
+	line-height: -150px;
+	top: -130px
+}
+
+.squaredFour label {
+	cursor: pointer;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 0;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px
+		rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+	background: #fcfff4;
+	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4',
+		endColorstr='#b3bead', GradientType=0);
+}
+
+.squaredFour label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity = 0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 4px;
+	left: 4px;
+	border: 3px solid #333;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.squaredFour label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity = 30);
+	opacity: 0.5;
+}
+
+.squaredFour input[type=checkbox]:checked+label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity = 100);
+	opacity: 1;
+}
+
+.submitForm {
+	position: relative;
+	top: -30px
+}
+
+.clock {
+	position: relative;
+	top: -35px;
+	left: 1450px
+}
+
+.searchTab {
+	position: relative;
+	top: -92px;
+	left: 30px;
+    width: 245px;
+	box-sizing: border-box;
+	border: 2px solid #555;
+	border-radius: 4px;
+	font-size: 16px;
+	background-color: #FDF5E6;
+	background-image:
+		url('http://fotograficasestriere.com/assets/themes/default/images/search.icon.png');
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+}
+
+.searchTab:focus {
+	width: 24%;
+}
+
+.searchSubmit {
+	position:relative;
+	top: -92px;
+	left: 22px;
+	background-color: #DEB887;
+	font: normal 18px courier;
+	border: 1px solid #000000;
+	color: black;
+	padding: 11px 11px;
+	text-decoration: none;
+	margin: 2px 2px;
+	cursor: pointer;
+}

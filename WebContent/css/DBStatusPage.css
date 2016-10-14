@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-image:
+		url("http://static.tumblr.com/716ed9ad0054e0041b30015b4295b6e8/juugxzf/zAOn19ozm/tumblr_static_wood____marcuzi_mod_by_marcuzi.jpg");
+}
+
+label {
+	font: bold 22px courier;
+	color: #FFF8DC
+}
+
+input[type=submit] {
+	background-color: #DEB887;
+	font: normal 18px courier;
+	border: none;
+	color: black;
+	padding: 14px 20px;
+	text-decoration: none;
+	margin: 2px 2px;
+	cursor: pointer;
+}
+.homeBtn {
+	position: relative;
+	top: -51px;
+	left: 271px
+}
