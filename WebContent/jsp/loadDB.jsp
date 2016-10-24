@@ -10,24 +10,24 @@
 
 <body>
 
-	<% if (DBLoadingService.isDBLoaded) { %>
+<%-- 	<% if (DBLoadingService.isDBLoaded) { %> --%>
 	
-	<h1 style="color: #FFF8DC;">Database loaded successfully!</h1>
-	<br><br>
-	<form action="extractFromDB" method="get">
-	<input type="submit" name="seeContent" value="See loaded content">
-	</form>
-	<form action="home" method="get">
-	<input type="submit" name="homeBtn" value="Back to Home page" class="homeBtn">
-	</form>
+<!-- 	<h1 style="color: #FFF8DC;">Database loaded successfully!</h1> -->
+<!-- 	<br><br> -->
+<!-- 	<form action="extractFromDB" method="get"> -->
+<!-- 	<input type="submit" name="seeContent" value="See loaded content"> -->
+<!-- 	</form> -->
+<!-- 	<form action="home" method="get"> -->
+<!-- 	<input type="submit" name="homeBtn" value="Back to Home page" class="homeBtn"> -->
+<!-- 	</form> -->
 	
-	<%	} else { %>
+<%-- 	<%	} else { %> --%>
 	
-	<h1 style="color: #FFF8DC;">Something went wrong with the database loading</h1>
-	<br><br>
-	<form action="home" method="get">
-	<input type="submit" name="homeBtn" value="Back to Home page">
-	</form>
-	<% } %>
+<!-- 	<h1 style="color: #FFF8DC;">Something went wrong with the database loading</h1> -->
+<!-- 	<br><br> -->
+<!-- 	<form action="home" method="get"> -->
+<!-- 	<input type="submit" name="homeBtn" value="Back to Home page"> -->
+<!-- 	</form> -->
+<%-- 	<% } %> --%>
 </body>
 </html>

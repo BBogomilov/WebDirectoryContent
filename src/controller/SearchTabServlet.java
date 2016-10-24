@@ -27,8 +27,8 @@ public class SearchTabServlet extends HttpServlet {
 		service.getSearchedContent(request.getParameter("search"));
 
 		if (service.areAnyMatches) {
-			request.setAttribute("results", service.getFilesFound() + " files found! <br>"
-					+ service.getResult().replaceAll(System.getProperty("line.separator"), "<br>"));
+	//		request.setAttribute("results", service.getFilesFound() + " files found! <br>"
+		//			+ service.getResult().replaceAll(System.getProperty("line.separator"), "<br>"));
 		} else
 			request.setAttribute("results",
 					"Sorry, there were no matches found for '" + request.getParameter("search") + "'.");

@@ -5,27 +5,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.faces.bean.ManagedBean;
-
 import utils.DBUtils;
 
-@ManagedBean
 public class SearchInDBService {
 	
 	private Connection con = null;
 	private int filesFound = 0;
 	public boolean areAnyMatches = false;
-	private StringBuilder result = new StringBuilder();
-	
-	public SearchInDBService() {
-		
-	}
 
-	public void getSearchedContent(String input) {
+	public String getSearchedContent(String input) {
 		con = DBUtils.establishConnection();
 		Statement st = null;
 		ResultSet rs = null;
-
+		StringBuilder result = new StringBuilder();
+				
 		try {
 			st = con.createStatement();
 			String query = "SELECT path FROM files WHERE name LIKE '%" + input + "%'";
@@ -38,6 +31,7 @@ public class SearchInDBService {
 					filesFound++;
 					areAnyMatches = true;
 				}
+				return result.toString();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -49,6 +43,7 @@ public class SearchInDBService {
 			if (con != null)
 				DBUtils.closeCon(con);
 		}
+		return input;
 	}
 
 	public boolean getAreAnyMatches() {
@@ -59,7 +54,4 @@ public class SearchInDBService {
 		return filesFound;
 	}
 
-	public String getResult() {
-		return result.toString();
-	}
 }

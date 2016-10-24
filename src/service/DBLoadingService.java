@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
 
@@ -18,13 +16,13 @@ import utils.DBUtils;
 public class DBLoadingService {
 	private static final Logger logger = Logger.getLogger(DBLoadingService.class);
 	private Connection con = null;
-	public static boolean isDBLoaded = false;
+	private boolean isDBLoaded = false;
 
-	public void writeOutputInDB(HttpServletRequest request) {
+	public void writeOutputInDB(String dir) {
 		con = DBUtils.establishConnection();
 
 		IReader reader = ReaderFactory.getInstance("n");
-		reader.showContent(request.getParameter("directory"));
+		reader.showContent(dir);
 
 		String[] contentArr = reader.getResult().split(System.getProperty("line.separator"));
 		File[] files = new File[contentArr.length];
@@ -141,4 +139,9 @@ public class DBLoadingService {
 		}
 		return sb.toString();
 	}
+	
+	public boolean isDBLoaded() {
+		return isDBLoaded;
+	}
+	
 }

@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.DBLoadingService;
-import service.ZipDownloadService;
 import utils.IOUtils;
 
 /**
@@ -31,8 +29,8 @@ public class ContentExtractServlet extends HttpServlet {
 			boolean checkBox = "Y".equals(request.getParameter("check"));
 
 			if (checkBox) {
-				ZipDownloadService service = new ZipDownloadService();
-				service.downloadZip(request, response);
+		//		ZipDownloadService service = new ZipDownloadService();
+			//	service.downloadZip(request, response);
 
 			} else {
 				if (request.getParameter("name").equals("btn1")) {
@@ -42,8 +40,8 @@ public class ContentExtractServlet extends HttpServlet {
 
 				} else if (request.getParameter("name").equals("btn2")) {
 
-					DBLoadingService dbService = new DBLoadingService();
-					dbService.writeOutputInDB(request);
+	//				DBLoadingService dbService = new DBLoadingService();
+//					dbService.writeOutputInDB(request);
 					RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/jsp/loadDB.jsp");
 					dispatcher.forward(request, response);
 				}

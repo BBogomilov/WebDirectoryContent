@@ -31,7 +31,7 @@ input[type="text"] {
 	font-style: italic
 }
 
-.DBLoadBtn {
+.loadBtn {
 	position: relative;
 	top: -13px;
 	left: 415px;
@@ -45,7 +45,7 @@ input[type="text"] {
 	cursor: pointer;
 }
 
-.submitBtn {
+.extractBtn {
 	position: relative;
 	top: -13px;
 	left: 885px;

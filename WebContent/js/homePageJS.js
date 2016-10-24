@@ -1,24 +1,20 @@
-$(document).on('click', '.submitBtn', function(event) {
-	event.preventDefault();
+function emptyInputCheck(event) {
+	if (document.getElementById('dirID').value == '') {
 
-	if ($('.directory').val() == '') {
 		alert("You must type a directory first")
-	} else {
-		document["main-form"].action = "/WebDirCont/contentExtract?name=btn1";
-		$('.submitForm').submit();
-	}
-})
+		event.preventDefault();
+		return false;
+	} else return true;
 
-$(document).on('click', '.DBLoadBtn', function(event) {
-	event.preventDefault();
+}
 
-	if ($('.directory').val() == '') {
-		alert("You must type a directory first")
-	} else {
-		document["main-form"].action = "/WebDirCont/contentExtract?name=btn2";
-		$('.submitForm').submit();
-	}
-})
+//$(document).on('click', '.loadBtn', function(event) {
+//	event.preventDefault();
+//
+//	if ($('.directory').val() == '') {
+//		alert("You must type a directory first")
+//	}
+//})
 
 function validate(event) {
 	if (document.getElementById('searchID').value.length < 3) {

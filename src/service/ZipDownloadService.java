@@ -5,24 +5,23 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import reader.IReader;
 import reader.ReaderFactory;
 
 public class ZipDownloadService {
-
-	public void downloadZip(HttpServletRequest request, HttpServletResponse response)
+	
+	public void downloadZip(String dir, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		response.setContentType("application/zip");
 		response.setHeader("Content-Disposition", "attachment; filename=data.zip");
 
 		try (ZipOutputStream zos = new ZipOutputStream(response.getOutputStream())) {
 
 			IReader reader = ReaderFactory.getInstance("n");
-			reader.showContent(request.getParameter("directory"));
+			reader.showContent(dir);
 
 			StringBuilder sb = new StringBuilder();
 			sb.append(reader.getResult());
