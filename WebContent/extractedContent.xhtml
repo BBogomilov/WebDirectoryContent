@@ -1,28 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="templates/homeTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 
-<h:head>
-<style>
+	<ui:define name="content">
+		<h:body>
+		<h:outputStylesheet library="css" name="extractedContentPage.css" />
+			<ul>
+				<ui:repeat value="#{mainBean.directoryContentResult}" var="line">
+					<font class="searchFont" size="5" face="Comic Sans MS"
+						color="#FFF8DC"> #{line} </font>
+					<br />
+				</ui:repeat>
+			</ul>
+			<br/>
+				<h:form>
+		<h:commandButton type="submit" name="homeBtn"
+			value="Back to Home page" class="homeBtn" action="homePage?faces-redirect=true" />
+	</h:form>
+		</h:body>
+	</ui:define>
 
-body {
-	background-color: #FFDAB9;
-}
-
-</style>
-</h:head>
-<h:body>
-
-<ul>
-		<ui:repeat value="#{mainBean.directoryContentResult}" var="line">
-			 <font class="searchFont" size="5" face="Comic Sans MS" color="#000000"> #{line} </font><br/>
-		</ui:repeat>
-	</ul>
-
-
-</h:body>
-	 
-
-</html>
+</ui:composition>

@@ -1,100 +1,70 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="templates/homeTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
+	<ui:define name="content">
+		<h:body>
+			<h:outputScript library="js" name="jquery-3.1.0.min.js"></h:outputScript>
+			<h:outputScript library="js" name="inputCheck.js"></h:outputScript>
+			<h:outputScript library="js" name="searchCheck.js"></h:outputScript>
+			<f:view transient="true">
 
-<h:head>
+			</f:view>
+			<h:form id="main-form" name="main-form" class="submitForm">
 
-	<title>Web Directory Content App</title>
+				<label for="directory">Directory absolute path: </label>
+				<h:inputText id="directoryInput" class="directory"
+					value="#{mainBean.selectedDir}" />
 
-<!-- 			<h:script src="js/jquery-3.1.0.min.js"></h:script> -->
-<!-- 			<h:script src="js/homePageJS.js"></h:script> -->
+				<br />
+				<br />
+				<br />
 
-	<!-- 		<h:outputScript href="./js/homePageJS.js" /> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-</h:head>
+				<h:commandButton action="#{mainBean.extractContent()}"
+					styleClass="extractBtn" value="Extract content"
+					listener="#{mainBean.extractContent()}" />
+				<h:commandButton value="Load in DataBase" styleClass="loadBtn"
+					action="#{mainBean.loadContentInDB()}"
+					listener="#{mainBean.loadContentInDB()}" />
 
-<h:body>
-<h:outputScript library="./js/jquery-3.1.0.min.js" name="jquery-3.1.0.min.js"/>
+				<br />
+				<label for="squaredFour" class="chkbox">Download output</label>
 
-		<link rel="stylesheet" type="text/css" href="./css/HomePageStyle.css" />
+				<div class="squaredFour">
+					<input type="checkbox" value="Y" id="squaredFour" name="check" />
+					<label for="squaredFour"></label>
+				</div>
+			</h:form>
 
-		<h1 style="color: #D2B48C;">Directory content reader app</h1>
-		<h:form>
-			<iframe
-				src="http://free.timeanddate.com/clock/i5ee74fs/n238/tlbg11/fn13/fs30/fcfff8dc/tct/pct/ftb/tt0/tw1/tm1/th1"
-				class="clock" frameborder="0" width="415" height="36"></iframe>
-		</h:form>
+			<h:form id="search-form" name="search-form">
 
-		<h:panelGroup rendered="#{mainBean.inputInvalid}">
-			<h2
-				style="color: #FF0000; position: relative; left: 10px; top: -40px;">
-				Invalid directory input</h2>
-		</h:panelGroup>
+				<h:inputText id="search" class="searchTab"
+					a:placeholder="Search file in DataBase.."
+					value="#{searchInDB.searchInput}" />
+				<h:commandButton id="searchBtnID" class="searchSubmit"
+					name="searchBtn" value="Search" listener="#{searchInDB.search()}"
+					action="#{searchInDB.search()}" onclick="validate (event);" />
 
-		<h:form id="main-form" name="main-form" class="submitForm" >
-
-			<label for="directory">Directory absolute path: </label>
-			<h:inputText id="directoryInput" class="directory"
-				value="#{mainBean.selectedDir}" />
-				<script>
-				function checker(event){
-				if(document.getElementById("directoryInput").value)
-				 {
-					event.preventDefault()
-				}};
-				
-				</script>
-			<br />
-			<br />
-			<br />
-
-			<h:commandButton action="#{mainBean.extractContent()}"
-				class="extractBtn" value="Extract content"
-				listener="#{mainBean.extractContent()}" onclick="checker(event)"/>
-			<h:commandButton value="Load in DataBase" class="loadBtn"
-				action="#{mainBean.loadContentInDB()}"
-				listener="#{mainBean.loadContentInDB()}" onclick="checker(event)"/>
-
-			<br />
-			<label for="squaredFour" class="chkbox">Download output</label>
-
-			<div class="squaredFour">
-				<input type="checkbox" value="Y" id="squaredFour" name="check" /> <label
-					for="squaredFour"></label>
-			</div>
-		</h:form>
-
-		<h:form id="search-form" name="search-form"
-			onsubmit="validate(event);">
-
-			<h:inputText id="searchID" styleClass="searchTab"
-				a:placeholder="Search file in DataBase.."
-				value="#{searchInDB.searchInput}" />
-			<h:commandButton id="searchBtnID" styleClass="searchSubmit"
-				value="Search" listener="#{searchInDB.search()}"
-				action="#{searchInDB.search()}" />
-
-		</h:form>
-
-		<h:panelGroup rendered="#{searchInDB.searchInvoked}">
-			<h:panelGroup rendered="#{searchInDB.somethingFound}">
-				<ul>
-					<ui:repeat value="#{searchInDB.searchResult}" var="line">
-						<font class="searchFont" size="5" face="Comic Sans MS"
-							color="#FFF8DC">#{line} </font>
-						<br />
-					</ui:repeat>
-				</ul>
+			</h:form>
+			<h:panelGroup rendered="#{searchInDB.searchInvoked}">
+				<h:panelGroup rendered="#{searchInDB.somethingFound}">
+					<ul>
+						<ui:repeat value="#{searchInDB.searchResult}" var="line">
+							<font class="searchFont" size="5" face="Comic Sans MS"
+								color="#FFF8DC">#{line} </font>
+							<br />
+						</ui:repeat>
+					</ul>
+				</h:panelGroup>
+				<h:panelGroup rendered="#{searchInDB.nothingFound}">
+					<font class="searchFont" size="5" face="Comic Sans MS"
+						color="#FFF8DC">#{searchInDB.noContentFoundMessage} </font>
+				</h:panelGroup>
 			</h:panelGroup>
-			<h:panelGroup rendered="#{searchInDB.nothingFound}">
-				<font class="searchFont" size="5" face="Comic Sans MS"
-					color="#FFF8DC">#{searchInDB.noContentFoundMessage} </font>
-			</h:panelGroup>
-
-		</h:panelGroup>
-</h:body>
-</html>
+		</h:body>
+	</ui:define>
+</ui:composition>

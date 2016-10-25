@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+
+	<h:outputStylesheet library="css" name="HomePageStyle.css" />
+	
+	<title>
+		<ui:insert name="title">Web Directory Content App</ui:insert>
+	</title>
+	
+</h:head>
+<h:body>
+	
+	<ui:insert name="header">
+		<h1 style="color: #D2B48C;">Directory content reader app</h1>
+		<h:form>
+			<iframe
+				src="http://free.timeanddate.com/clock/i5ee74fs/n238/tlbg11/fn13/fs30/fcfff8dc/tct/pct/ftb/tt0/tw1/tm1/th1"
+				class="clock" frameborder="0" width="415" height="36"></iframe>
+		</h:form>
+
+		<h:panelGroup rendered="#{mainBean.inputInvalid}">
+			<h2
+				style="color: #FF0000; position: relative; left: 10px; top: -40px;">
+				Invalid directory input</h2>
+		</h:panelGroup>
+	</ui:insert>
+	<ui:insert name="content"></ui:insert>
+	<ui:insert name="footer"></ui:insert>
+	
+</h:body>
+</html>

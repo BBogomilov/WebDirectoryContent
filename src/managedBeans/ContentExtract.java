@@ -55,7 +55,7 @@ public class ContentExtract {
 			setInputInvalid(true);
 			return "homePage";
 		}
-		return "";
+		return "homePage";
 
 	}
 
