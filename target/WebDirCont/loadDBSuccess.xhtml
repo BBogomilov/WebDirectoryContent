@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="templates/homeTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:define name="content">
+		<h:body>
+			<link rel="stylesheet" type="text/css"
+				href="./resources/css/DBStatusPage.css" />
+
+			<h1 style="color: #FFF8DC;">Database loaded successfully!</h1>
+			<br />
+			<br />
+			<h:form>
+				<h:commandButton type="submit" name="seeContent"
+					value="See loaded content"
+					action="#{extractFromDB.extractContent()}"
+					listener="#{extractFromDB.extractContent()}" />
+			</h:form>
+			<h:form>
+				<h:commandButton type="submit" name="homeBtn"
+					value="Back to Home page" class="homeBtn"
+					action="homePage?faces-redirect=true" />
+			</h:form>
+
+		</h:body>
+	</ui:define>
+
+</ui:composition>

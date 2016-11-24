@@ -25,16 +25,15 @@ public class DBUtils {
 			
 			Properties properties = new Properties();
 			properties.load(stream);
-			
-			Class.forName(properties.getProperty("db.driver"));
+			 Class.forName(properties.getProperty("db.driver"));
 			con = DriverManager.getConnection(properties.getProperty("db.url"), properties.getProperty("db.username"),
 					properties.getProperty("db.password"));
-			
 			logger.info("Connection  with database created successfully");
-
-		} catch (ClassNotFoundException e) {
-			logger.info("No such driver imported");
-		} catch (FileNotFoundException e1) {
+		}
+		 catch (ClassNotFoundException e) {
+		 logger.info("No such driver imported");
+		 }
+		catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (IOException e2) {
 			e2.printStackTrace();

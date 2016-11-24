@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="templates/homeTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:define name="content">
+<h:body>
+	<link rel="stylesheet" type="text/css" href="./css/DBStatusPage.css" />
+
+	<h1 style="color: #FFF8DC;">Something went wrong with the database
+		loading</h1>
+	<br />
+	<br />
+	<h:form action="home" method="get">
+		<h:commandButton type="submit" name="homeBtn"
+			value="Back to Home page" action="homePage.xhtml" />
+	</h:form>
+
+</h:body>
+</ui:define>
+</ui:composition>

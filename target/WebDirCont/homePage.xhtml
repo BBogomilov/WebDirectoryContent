@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="templates/homeTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="content">
+		<h:body>
+			<h:outputScript library="js" name="jquery-3.1.0.min.js"></h:outputScript>
+			<h:outputScript library="js" name="inputCheck.js"></h:outputScript>
+			<h:outputScript library="js" name="searchCheck.js"></h:outputScript>
+			<f:view transient="true">
+
+			</f:view>
+			<h:form id="main-form" name="main-form" class="submitForm">
+
+				<label for="directory">Directory absolute path: </label>
+				<h:inputText id="directoryInput" class="directory"
+					value="#{mainBean.selectedDir}" />
+
+				<br />
+				<br />
+				<br />
+
+				<h:commandButton action="#{mainBean.extractContent()}"
+					styleClass="extractBtn" value="Extract content"
+					listener="#{mainBean.extractContent()}" />
+				<h:commandButton value="Load in DataBase" styleClass="loadBtn"
+					action="#{mainBean.loadContentInDB()}"
+					listener="#{mainBean.loadContentInDB()}" />
+
+				<br />
+				<label for="squaredFour" class="chkbox">Download output</label>
+
+				<div class="squaredFour">
+					<input type="checkbox" value="Y" id="squaredFour" name="check" />
+					<label for="squaredFour"></label>
+				</div>
+			</h:form>
+
+			<h:form id="search-form" name="search-form">
+
+				<h:inputText id="search" class="searchTab"
+					a:placeholder="Search file in DataBase.."
+					value="#{searchInDB.searchInput}" />
+				<h:commandButton id="searchBtnID" class="searchSubmit"
+					name="searchBtn" value="Search" listener="#{searchInDB.search()}"
+					action="#{searchInDB.search()}" onclick="validate (event);" />
+
+			</h:form>
+			<h:panelGroup rendered="#{searchInDB.searchInvoked}">
+				<h:panelGroup rendered="#{searchInDB.somethingFound}">
+					<ul>
+						<ui:repeat value="#{searchInDB.searchResult}" var="line">
+							<font class="searchFont" size="5" face="Comic Sans MS"
+								color="#FFF8DC">#{line} </font>
+							<br />
+						</ui:repeat>
+					</ul>
+				</h:panelGroup>
+				<h:panelGroup rendered="#{searchInDB.nothingFound}">
+					<font class="searchFont" size="5" face="Comic Sans MS"
+						color="#FFF8DC">#{searchInDB.noContentFoundMessage} </font>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:body>
+	</ui:define>
+</ui:composition>

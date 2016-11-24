@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<h:panelGroup rendered="#{searchInDB.searchInvoked}">
+		<h:panelGroup rendered="#{searchInDB.somethingFound}">
+			<ul>
+				<ui:repeat value="#{searchInDB.searchResult}" var="line">
+					<font class="searchFont" size="5" face="Comic Sans MS"
+						color="#FFF8DC">#{line} </font>
+					<br />
+				</ui:repeat>
+			</ul>
+		</h:panelGroup>
+		<h:panelGroup rendered="#{searchInDB.nothingFound}">
+			<font class="searchFont" size="5" face="Comic Sans MS"
+				color="#FFF8DC">#{searchInDB.noContentFoundMessage} </font>
+		</h:panelGroup>
+	</h:panelGroup>
+</h:body>
+</html>

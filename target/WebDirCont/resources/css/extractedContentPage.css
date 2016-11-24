@@ -1,0 +1,15 @@
+input[type=submit] {
+	background-color: #DEB887;
+	font: normal 18px courier;
+	border: none;
+	color: black;
+	padding: 14px 20px;
+	text-decoration: none;
+	margin: 2px 2px;
+	cursor: pointer;
+}
+.homeBtn {
+    position: absolute;
+    top: 70px;
+    left: 771px;
+}

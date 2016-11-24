@@ -1,0 +1,9 @@
+managedBeans\ExtractFromDB.class
+utils\DBUtils.class
+service\ContentExtractService.class
+managedBeans\SearchInDB.class
+managedBeans\ContentExtract.class
+service\InputCheckerService.class
+service\ZipDownloadService.class
+service\SearchInDBService.class
+service\DBLoadingService.class
